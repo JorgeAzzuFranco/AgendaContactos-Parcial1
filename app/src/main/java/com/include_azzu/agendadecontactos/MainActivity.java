@@ -9,9 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
@@ -20,6 +17,8 @@ public class MainActivity extends AppCompatActivity{
     ArrayList<Contacto> contactos;
     RecyclerView rv;
     ContactoAdapter adapter;
+
+    private String orderByNom = ContactsContract.Contacts.DISPLAY_NAME;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity{
         //Instanciando el contactProvider
         ContentResolver contactProvider = getContentResolver();
         //Creando cursor para recorrer los nombres de los contactos
-        Cursor cursor = contactProvider.query(ContactsContract.Contacts.CONTENT_URI, null, null,null,null, null);
+        Cursor cursor = contactProvider.query(ContactsContract.Contacts.CONTENT_URI, null, null,null,orderByNom, null);
 
         //Obtiene los numeros de los contactos
         while (cursor.moveToNext()){
