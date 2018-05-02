@@ -35,15 +35,6 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoAdapter.Contac
 
     @Override
     public void onBindViewHolder(final ContactoViewHolder holder, int position) {
-        holder.itemView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                if(holder.nombre.getText() == "Jorgito")
-                    holder.nombre.setText("Jack");
-                else
-                    holder.nombre.setText("Jorgito");
-            }
-        });
         holder.nombre.setText(contactos.get(position).getNombre());
         holder.telefono.setText(contactos.get(position).getTelefono()+"");
         holder.correo.setText(contactos.get(position).getCorreo());

@@ -14,7 +14,7 @@ public class Contacto {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
-        img = R.drawable.call;
+        img = R.drawable.contacto;
     }
 
     public String getNombre() {
